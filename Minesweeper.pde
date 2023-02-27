@@ -28,7 +28,7 @@ public void setMines()
 {
     int mineRows = (int)(Math.random() * (NUM_ROWS));
     int mineCols = (int)(Math.random() * (NUM_COLS));
-    if(!mines.contains(mineRows) && !mines.contains(mineCols)){
+    if(!mines.contains(buttons[mineRows][mineCols])){
       mines.add(buttons[mineRows][mineCols]);
     }
     System.out.println(mineRows + "," + mineCols);
@@ -42,7 +42,17 @@ public void draw ()
 }
 public boolean isWon()
 {
-    
+    int x = 0;
+    for(int i = 0; i < NUM_COLS; i++){
+      for(int j = 0; j < NUM_ROWS; j++){
+        if(buttons[j][i].clicked && !mines.contains(buttons[j][i])){
+          x++;
+        }
+      }
+    }
+    if(x == (NUM_ROWS * NUM_COLS) - mines.size()){
+      return true;
+    }
     return false;
 }
 public void displayLosingMessage()
@@ -51,6 +61,7 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
+
     //your code here
 }
 public boolean isValid(int r, int c)
