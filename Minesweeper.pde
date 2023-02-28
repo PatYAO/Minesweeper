@@ -20,9 +20,9 @@ void setup ()
       }
     }
     
-    setMines();
-    setMines();
-    setMines();
+    for(int m = 0; m < 20; m++){
+      setMines();
+    }
 }
 public void setMines()
 {
@@ -31,7 +31,7 @@ public void setMines()
     if(!mines.contains(buttons[mineRows][mineCols])){
       mines.add(buttons[mineRows][mineCols]);
     }
-    System.out.println(mineRows + "," + mineCols);
+    System.out.println((mineRows+1) + "," + (mineCols+1));
 }
 
 public void draw ()
@@ -45,7 +45,11 @@ public boolean isWon()
     int x = 0;
     for(int i = 0; i < NUM_COLS; i++){
       for(int j = 0; j < NUM_ROWS; j++){
-        if(buttons[j][i].clicked && !mines.contains(buttons[j][i])){
+        if(buttons[j][i].clicked && mines.contains(buttons[j][i])){
+          displayLosingMessage();
+          return false;
+        }
+        else if(buttons[j][i].clicked && !mines.contains(buttons[j][i])){
           x++;
         }
       }
@@ -57,11 +61,24 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
+     buttons[0][0].setLabel("Y");
+     buttons[0][1].setLabel("o");
+     buttons[0][2].setLabel("u");
+     buttons[1][0].setLabel("L");
+     buttons[1][1].setLabel("o");
+     buttons[1][2].setLabel("s");
+     buttons[1][3].setLabel("e");
     //your code here
 }
 public void displayWinningMessage()
 {
-
+     buttons[0][0].setLabel("Y");
+     buttons[0][1].setLabel("o");
+     buttons[0][2].setLabel("u");
+     buttons[1][0].setLabel("W");
+     buttons[1][1].setLabel("i");
+     buttons[1][2].setLabel("n");
+     
     //your code here
 }
 public boolean isValid(int r, int c)
