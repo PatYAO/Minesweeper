@@ -31,7 +31,7 @@ public void setMines()
     if(!mines.contains(buttons[mineRows][mineCols])){
       mines.add(buttons[mineRows][mineCols]);
     }
-    System.out.println((mineRows+1) + "," + (mineCols+1));
+    //System.out.println((mineRows+1) + "," + (mineCols+1));
 }
 
 public void draw ()
