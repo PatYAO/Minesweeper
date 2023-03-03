@@ -20,7 +20,7 @@ void setup ()
       }
     }
     
-    for(int m = 0; m < 18; m++){
+    for(int m = 0; m < 20; m++){
       setMines();
     }
 }
@@ -85,11 +85,6 @@ public void displayWinningMessage()
      buttons[1][0].setLabel("W");
      buttons[1][1].setLabel("i");
      buttons[1][2].setLabel("n");
-     for(int i = 0; i < 3; i++){
-       for(int j = 0; j < 2;j++){
-         fill(0,0,255);
-       }
-     }
      
     //your code here
 }
